@@ -15,13 +15,47 @@
 var hashtag = $(location).attr('hash');   
 var link = hashtag.substr(1).replace('/', '');
   
-		 $("#tag").append( link + " - 3");
+		 $("#tag").append( link + " - 4");
 		 $("#link").attr("href", "kvdapp://"+link);
 		 //$("#link").click();
 
+$(document).ready(function(){
 
-setTimeout(function () { window.location = "http://www.bejt.dk"; }, 25);
-window.location = "kvdapp://"+link;
+  call_me_new("kvdapp://"+link);
+}
+var call_me_new = function(deeplinking_url){<br>
+
+        if(deeplinking_url!=''){
+                var fallbackUrl ='http://dmi.com/';
+                var iframe = document.createElement("iframe");
+                var nativeSchemaUrl = deeplinking_url;
+                console.log(nativeSchemaUrl);
+
+                iframe.id = "app_call_frame";
+                iframe.style.border = "none";
+                iframe.style.width = "1px";
+                iframe.style.height = "1px";
+                iframe.onload = function () {
+                    document.location = nativeSchemaUrl;
+                };
+                iframe.src = nativeSchemaUrl; //iOS app schema url<br>
+                window.onload = function(){
+                    document.body.appendChild(iframe);
+                }
+
+                //IF the App is not install then it will remain on the same page.If you wish to send the use to other page then uncomment the below code and send a time interval for the redirect.<br>
+                
+                setTimeout(function(){
+                   console.log('Iframe Removed...');
+                    document.getElementById("app_call_frame").remove();
+
+	               window.location = fallbackUrl; //fallback url
+	                },1000);          
+        }
+    };
+
+//setTimeout(function () { window.location = "http://www.bejt.dk"; }, 25);
+//window.location = "kvdapp://"+link;
 
 
 </script>
