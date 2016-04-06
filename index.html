@@ -11,9 +11,9 @@
 </html>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-var a = location.href; 
+var a = window.location.pathname;
 var b = a.substring(a.indexOf("?")+1);
-		$("#tag").append(b);
-		$("link").attr("href", "kvdapp://"+b);
+		$("#tag").append( a + ' : ' + b );
+		$("#link").attr("href", "kvdapp://"+b);
 
 </script>
