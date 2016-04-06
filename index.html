@@ -11,9 +11,16 @@
 </html>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-var a = $(location).attr('href');
+var a = getAbsolutePath();
 var b = a.substring(a.indexOf("?")+1);
 		$("#tag").append( a + ' - ' + b );
 		$("#link").attr("href", "kvdapp://"+b);
 
+
+		
+function getAbsolutePath() {
+    var loc = window.location;
+    var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+    return loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
+}
 </script>
