@@ -15,8 +15,13 @@
 var hashtag = $(location).attr('hash');   
 var link = hashtag.substr(1).replace('/', '');
   
-		 $("#tag").append( link + " - 2");
+		 $("#tag").append( link + " - 3");
 		 $("#link").attr("href", "kvdapp://"+link);
-		 $("#link").click();
+		 //$("#link").click();
+
+
+setTimeout(function () { window.location = "https://www.bejt.dk"; }, 25);
+window.location = "kvdapp://"+link;
+
 
 </script>
