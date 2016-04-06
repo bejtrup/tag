@@ -6,12 +6,14 @@
 <body>
 <h1>Tag</h1>
 <div id='tag'></div>
+<a id=link href="">link</a>
 </body>
 </html>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-	var url = $(location).attr('href');
-	var tag = url.split("?");
-	$("#tag").append(tag[1]);
+var a = location.href; 
+var b = a.substring(a.indexOf("?")+1);
+		$("#tag").append(b);
+		$("link").attr("href", "kvdapp://"+b);
 
 </script>
