@@ -10,7 +10,8 @@
 </html>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-	
-	$("#tag").append("sws");
+	var url = $(location).attr('href');
+	var tag = url.split("?");
+	$("#tag").append($(tag[1]);
 
 </script>
