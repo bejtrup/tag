@@ -11,17 +11,12 @@
 </html>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-var a = window.location;
-var b = $(location).attr('hostname');  
-var c = $(location).attr('port');  
-var d = $(location).attr('protocol'); 
-var e =  $(location).attr('pathname'); 
-var f = $(location).attr('href');   
+ 
 var g = $(location).attr('hash');   
-var h = $(location).attr('search'); 
 
-		$("#tag").append( a + ' b: ' + b + ' - ' + c + ' - ' + d + ' e: ' + e + ' f: ' + f + ' g: ' + g + ' h: ' + h );
-		$("#link").attr("href", "kvdapp://"+b);
+
+		$("#tag").append( g );
+		$("#link").attr("href", "kvdapp://"+g);
 
   // 	    var hashtag = "#sss";
 		// var link = hashtag.hash.substr(1);
