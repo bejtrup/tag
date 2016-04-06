@@ -13,9 +13,9 @@
 <script type="text/javascript">
  
 var hashtag = $(location).attr('hash');   
-var link = hashtag.substr(1);
+var link = hashtag.substr(1)..replace('/', '');
   
-		 $("#tag").append( hashtag );
+		 $("#tag").append( link );
 		 $("#link").attr("href", "kvdapp://"+link);
 
 </script>
