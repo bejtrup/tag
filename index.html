@@ -12,16 +12,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
  
-var g = $(location).attr('hash');   
-
-
-		$("#tag").append( g );
-		$("#link").attr("href", "kvdapp://"+g);
-
-  // 	    var hashtag = "#sss";
-		// var link = hashtag.hash.substr(1);
+var hashtag = $(location).attr('hash');   
+var link = hashtag.substr(1);
   
-		// $("#tag").append( hashtag );
-		// $("#link").attr("href", "kvdapp://"+link;
+		 $("#tag").append( hashtag );
+		 $("#link").attr("href", "kvdapp://"+link);
 
 </script>
