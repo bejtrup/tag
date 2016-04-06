@@ -11,16 +11,15 @@
 </html>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-var a = getAbsolutePath();
-var b = a.substring(a.indexOf("?")+1);
-		$("#tag").append( a + ' - ' + b );
+var a = $(location).attr('host');
+var b = $(location).attr('hostname');  
+var c = $(location).attr('port');  
+var d = $(location).attr('protocol'); 
+var e =  $(location).attr('pathname'); 
+var f = $(location).attr('href');   
+var g = $(location).attr('hash');   
+var h = $(location).attr('search');   
+		$("#tag").append( a + ' - ' + b + ' - ' + c + ' - ' + d + ' - ' + e + ' - ' + f + ' - ' + g + ' - ' + h );
 		$("#link").attr("href", "kvdapp://"+b);
 
-
-		
-function getAbsolutePath() {
-    var loc = window.location;
-    var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
-    return loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
-}
 </script>
