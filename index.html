@@ -7,51 +7,82 @@
 <h1>Tag</h1>
 <div id='tag'></div>
 <a id=link href="">link</a>
+          <div><a id="open-app-link" class="open-app" href="javascript:;"> Open App</a></div>
+          <br>
+          <br>
+          <div class="download-app">
+            If you don't have app installed,
+            <br>
+              please
+             <a href="https://itunes.apple.com/us/app/facebook/id284882215?mt=8">download</a>
+              it at App store.
+          </div>
 </body>
 </html>
 <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="LaunchMyApp.js"></script>
 <script type="text/javascript">
  
-var hashtag = $(location).attr('hash');   
-var link = hashtag.substr(1).replace('/', '');
+          !(function($) {
+              $(document).ready(function() {
+                  /** Initialize Deeplinking ***/
+                  $(document).ready(function() {
+                      NativeAppLauncher.init({
+                          appLauncherElId: 'open-app-link', // Element Id of App Launcher button.
+                          notSupportedMessage: 'Sorry, you’ll need to use a different browser to do this.',
+                          universalLinkUrl: 'http://bejt.dk',
+                          appUri: 'kvdapp://',
+                          androidAppId: 'com.kvdapp.android',
+                          iOsAppStore:'https://play.google.com/kvdapp',
+                          debug:false // Optional
+                          //campaignCode: 'this-is-test-campaign' // optional, this appends campaign on app store url.
+                      });
+                  });
+              });
+          })(jQuery);
+
+
+
+// var hashtag = $(location).attr('hash');   
+// var link = hashtag.substr(1).replace('/', '');
   
-		 $("#tag").append( link + " - 4");
-		 $("#link").attr("href", "kvdapp://"+link);
-		 //$("#link").click();
+// 		 $("#tag").append( link + " - 4");
+// 		 $("#link").attr("href", "kvdapp://"+link);
+// 		 //$("#link").click();
 
-$(document).ready(function(){
-  call_me_new("kvdapp://"+link);
-});
-var call_me_new = function(deeplinking_url){
+// $(document).ready(function(){
+//   call_me_new("kvdapp://"+link);
+// });
+// var call_me_new = function(deeplinking_url){
 
-        if(deeplinking_url!=''){
-                var fallbackUrl ='http://dmi.com/';
-                var iframe = document.createElement("iframe");
-                var nativeSchemaUrl = deeplinking_url;
-                console.log(nativeSchemaUrl);
+//         if(deeplinking_url!=''){
+//                 var fallbackUrl ='http://dmi.com/';
+//                 var iframe = document.createElement("iframe");
+//                 var nativeSchemaUrl = deeplinking_url;
+//                 console.log(nativeSchemaUrl);
 
-                iframe.id = "app_call_frame";
-                iframe.style.border = "none";
-                iframe.style.width = "1px";
-                iframe.style.height = "1px";
-                iframe.onload = function () {
-                    document.location = nativeSchemaUrl;
-                };
-                iframe.src = nativeSchemaUrl; //iOS app schema url<br>
-                window.onload = function(){
-                    document.body.appendChild(iframe);
-                }
+//                 iframe.id = "app_call_frame";
+//                 iframe.style.border = "none";
+//                 iframe.style.width = "1px";
+//                 iframe.style.height = "1px";
+//                 iframe.onload = function () {
+//                     document.location = nativeSchemaUrl;
+//                 };
+//                 iframe.src = nativeSchemaUrl; //iOS app schema url<br>
+//                 window.onload = function(){
+//                     document.body.appendChild(iframe);
+//                 }
 
-                //IF the App is not install then it will remain on the same page.If you wish to send the use to other page then uncomment the below code and send a time interval for the redirect.<br>
+//                 //IF the App is not install then it will remain on the same page.If you wish to send the use to other page then uncomment the below code and send a time interval for the redirect.<br>
                 
-                setTimeout(function(){
-                   console.log('Iframe Removed...');
-                    document.getElementById("app_call_frame").remove();
+//                 setTimeout(function(){
+//                    console.log('Iframe Removed...');
+//                     document.getElementById("app_call_frame").remove();
 
-	               window.location = fallbackUrl; //fallback url
-	                },1000);          
-        }
-    };
+// 	               window.location = fallbackUrl; //fallback url
+// 	                },1000);          
+//         }
+//     };
 
 //setTimeout(function () { window.location = "http://www.bejt.dk"; }, 25);
 //window.location = "kvdapp://"+link;
