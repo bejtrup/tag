@@ -22,7 +22,7 @@
 // $(document).ready(function(){
    call_me_new("kvdapp://"+link);
 // });
- var call_me_new = function(deeplinking_url){
+ function call_me_new(deeplinking_url){
 
         if(deeplinking_url!=''){
                 var fallbackUrl = 'www.bejt.dk';
@@ -50,5 +50,5 @@
 	               //window.location = fallbackUrl; //fallback url
 	                },50);          
         }
-    };
+    });
 </script>
