@@ -17,7 +17,7 @@
  var hashtag = $(location).attr('hash');   
  var link = hashtag.substr(1).replace('/', '');
   
- 		 $("#tag").append( link + " - 6");
+ 		 $("#tag").append( link + " - 7");
  		 $("#link").attr("href", "kvdapp://"+link);
 // 		 //$("#link").click();
 
@@ -47,7 +47,7 @@
                    //console.log('Iframe Removed...');
                     document.getElementById("app_call_frame").remove();
 	               //window.location = fallbackUrl; //fallback url
-	            },500);          
+	            },1000);          
         }
     }
 // $(document).ready(function(){
